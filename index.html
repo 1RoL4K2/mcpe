@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>MCPE 0.14.0+ Server List</title>
+    <style type="text/css">
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 20px;
+            color: #38bdf8;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        .server-card {
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            margin-bottom: 12px;
+            padding: 10px;
+            -webkit-border-radius: 8px;
+            border-radius: 8px;
+        }
+        .server-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #fbbf24;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .copy-box {
+            background-color: #000;
+            color: #10b981;
+            border: 1px dashed #555;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 15px;
+            display: block;
+            word-break: break-all;
+            -webkit-user-select: all;
+            user-select: all;
+        }
+        .server-meta {
+            font-size: 10px;
+            color: #888;
+            margin-top: 8px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MCPE Server List</h1>
+    <div class="subtitle">Hold finger on address to copy</div>
+
+    <div id="list"></div>
+
+    <div class="footer">
+        For SOi6, iOS VI Documentation and Legacy Projects<br>
+        
+    </div>
+
+    <script type="text/javascript">
+        var dot = ".";
+        var col = ":";
+        
+        var s = [
+            ["GreenWix Network", "play", "greenwix", "ru", "19132"],
+            ["ZuesNW Survival", "zuesnw", "com", "", "19132"],
+            ["Hyper-PE Games", "play", "hyperpe", "ru", "19132"],
+            ["PvPCraft RU", "play", "pvpcraft", "ru", "19132"],
+            ["LateCraft", "latecraft", "ru", "", "19150"],
+            ["Haze MyFTP", "haze", "myftp", "org", "10744"],
+            ["SG-PE Network", "play", "sg-pe", "ru", "19130"],
+            ["Block-Party RU", "block-party", "ru", "", "19132"],
+            ["Public Server", "45", "142", "104", "112", "8625"]
+        ];
+
+        var container = document.getElementById('list');
+        var out = "";
+
+        for (var i = 0; i < s.length; i++) {
+            var name = s[i][0];
+            var addr = "";
+            
+            if (s[i].length === 6) {
+                addr = s[i][1] + dot + s[i][2] + dot + s[i][3] + dot + s[i][4] + col + s[i][5];
+            } else {
+                addr = s[i][1] + dot + s[i][2] + (s[i][3] ? dot + s[i][3] : "") + col + s[i][4];
+            }
+
+            out += '<div class="server-card">' +
+                '<span class="server-name">' + name + '</span>' +
+                '<div class="copy-box">' + addr + '</div>' +
+                '<div class="server-meta">Status: Online | Version: 0.14.0</div>' +
+                '</div>';
+        }
+        container.innerHTML = out;
+    </script>
+
+</body>
+</html>
